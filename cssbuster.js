@@ -1,11 +1,25 @@
-function changeImg(imgNumber)	{
-    var myImages = ["/web/jellyfin-fanartbackground-main/1.jpg", "/web/jellyfin-fanartbackground-main/2.jpg", "/web/jellyfin-fanartbackground-main/3.jpg", "/web/jellyfin-fanartbackground-main/4.jpg", "/web/jellyfin-fanartbackground-main/5.jpg", "/web/jellyfin-fanartbackground-main/6.jpg", "/web/jellyfin-fanartbackground-main/7.jpg", "/web/jellyfin-fanartbackground-main/8.jpg", "/web/jellyfin-fanartbackground-main/9.jpg", "/web/jellyfin-fanartbackground-main/10.jpg", "/web/jellyfin-fanartbackground-main/11.jpg", "/web/jellyfin-fanartbackground-main/12.jpg", "/web/jellyfin-fanartbackground-main/13.jpg", "/web/jellyfin-fanartbackground-main/14.jpg", "/web/jellyfin-fanartbackground-main/15.jpg", "/web/jellyfin-fanartbackground-main/16.jpg", "/web/jellyfin-fanartbackground-main/17.jpg", "/web/jellyfin-fanartbackground-main/18.jpg", "/web/jellyfin-fanartbackground-main/19.jpg", "/web/jellyfin-fanartbackground-main/20.jpg", "/web/jellyfin-fanartbackground-main/21.jpg", "/web/jellyfin-fanartbackground-main/22.jpg", "/web/jellyfin-fanartbackground-main/23.jpg", "/web/jellyfin-fanartbackground-main/24.jpg", "/web/jellyfin-fanartbackground-main/25.jpg", "/web/jellyfin-fanartbackground-main/26.jpg", "/web/jellyfin-fanartbackground-main/27.jpg", "/web/jellyfin-fanartbackground-main/28.jpg", "/web/jellyfin-fanartbackground-main/29.jpg", "/web/jellyfin-fanartbackground-main/30.jpg"]; 
-    var imgShown = document.body.style.backgroundImage;
-    var newImgNumber =Math.floor(Math.random()*myImages.length);
+
+// Global Variables
+var imgPath = "/web/images/backgrounds/";   // Path to find images. Files served from /jellyfin/jellyfin-web/ = /web/
+var imgExt = ".jpg";                        // File type to be found in imgPath. Example naming 1.png, 2.png or 1.jpg, 2.jpg
+var imgCount = "20";                        // How many images found in imgPath
+var reSeconds = "7.5";                      // Reload image every n seconds
+
+// Main Function for creating the custom css and inject it into the css file
+var imgNum = imgCount-1;
+function changeImg()	{
+    var newImgNumber =Math.floor(Math.random()*imgNum);
+    newImgNumber = newImgNumber +1;
     var sheet = window.document.styleSheets[0];
-    sheet.insertRule('#loginPage { background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('+myImages[newImgNumber]+') !important; background-size: cover !important; }', sheet.cssRules.length)
+    sheet.insertRule('#loginPage {  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('+imgPath+''+newImgNumber+''+imgExt+') !important; \
+                                    background-size: cover !important; \
+                                    background-position: 50% 65% !important; \
+                                    background-repeat: no-repeat !important; \
+                                    }', sheet.cssRules.length)
 }
+
+// Change the background on page load
 window.onload=changeImg;
-setInterval(function() {
-changeImg('+newImgNumber+')
-}, 10000);
+
+// Change the background at regular intervals
+setInterval(function() { changeImg() }, (reSeconds * 1000));
