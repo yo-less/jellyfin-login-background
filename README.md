@@ -17,7 +17,7 @@ A simple yet effective way to add a refreshing background on the jellyfin login 
 * Create a backgrounds folder in the above images folder ` mkdir ./config/images/backgrounds `
 * Add the following to the end of your index.html file using `sudo nano ./config/index.html` (and insert it just before the final </body> tag
 ```
-    <script src="jellyfin-fanartbackground-main/cssbuster.js"></script>
+    <script src="images/cssbuster.js"></script>
 ```
 ### Settings and images
 * Fill the backgrounds folder with images with a consistent numbering system ` 1.jpg, 2,jpg, 3,jpg,,,,,, `
