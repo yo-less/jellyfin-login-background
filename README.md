@@ -1,5 +1,13 @@
 # jellyfin-login-artbackground
 A simple yet effective way to add a refreshing background on the jellyfin login page it now auto reloads the background image after a configurable amount of time Based on BobHasNoSouls https://github.com/BobHasNoSoul/jellyfin-fanartbackground
+#### Differences to BobHasNoSouls version
+1) Rewrote the README with instructions for use with docker compose installs of Jellyfin.
+2) Made it so you self serve the script via Jellyfins web server.
+3) Made away with the use of an array to hold all the file names, now you just tell it how many pictures and the extension type.
+4) Made it so that file names are possible, not just numbered images.
+5) Made the time easily adjustable.
+6) Ensured the images expands from the center rather than the top left corner
+7) Oh and I renamed it jellyfin-login-artbackground because I use it to serve AI generated sci-fi art not fanart.
 
 # Installation
 ### Docker compose install
