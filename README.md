@@ -9,6 +9,9 @@ A simple yet effective way to add a refreshing background on the jellyfin login 
 6) Ensured the images expands from the center rather than the top left corner
 7) Oh and I renamed it jellyfin-login-artbackground because I use it to serve AI generated sci-fi art not fanart.
 
+### Change Log
+* 05:29:24 - Include index.html to make updating it easier since the recent major update as subsequent minor updates.
+
 # Installation
 ### Docker compose install
 
@@ -19,14 +22,12 @@ A simple yet effective way to add a refreshing background on the jellyfin login 
       - ./config/images:/jellyfin/jellyfin-web/images
       - ./config/index.html:/jellyfin/jellyfin-web/index.html
 ```
-* Bring Jellyfin back up ` docker compose up -d ` We should now have an index.html file in our config folder.
+* Downloaded the included index.html file and place it in your ./config folder as configured above.
 * Create an images folder in your config directory to match the local volumes above. ` mkdir ./config/images `
 * Download the cssbuster.js script from the repo and place it in the images folder created above. ./config/images/cssbuster.js
 * Create a backgrounds folder in the above images folder ` mkdir ./config/images/backgrounds `
-* Add the following to the end of your index.html file using `sudo nano ./config/index.html` (and insert it just before the final </body> tag
-```
-    <script src="images/cssbuster.js"></script>
-```
+* Bring Jellyfin back up ` docker compose up -d `.
+
 ### Settings and images
 * Fill the backgrounds folder with images with a consistent numbering system ` 1.jpg, 2,jpg, 3,jpg,,,,,, `
 * To use named files you need to adjust the imgPath or imgExt variables in the script to match your naming.
